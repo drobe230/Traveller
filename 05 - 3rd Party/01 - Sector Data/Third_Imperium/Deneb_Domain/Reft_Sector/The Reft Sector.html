@@ -1,0 +1,4105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://travellermap.com/make/booklet?sector=Reft -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>The Reft Sector</title>
+
+<link rel="shortcut icon" href="https://travellermap.com/favicon.svg">
+<link rel="stylesheet" href="./The Reft Sector_files/site.css">
+<script src="./The Reft Sector_files/handlebars.min.js.download"></script>
+<script src="./The Reft Sector_files/map.js.download"></script>
+<script src="./The Reft Sector_files/post.js.download"></script>
+<script src="./The Reft Sector_files/booklet.js.download"></script>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Marcellus|PT+Sans+Narrow);
+
+/* Form ============================== */
+
+#input { margin: 8px; }
+
+body.render #input { display: none; }
+
+#option_columns > tbody> tr > td { padding: 0 20px; }
+#label_grid { font-size: 10pt; }
+
+/* Booklet ============================== */
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 0;
+  }
+
+  body.render {
+    position: absolute; /* Hack for extra margin when printing */
+  }
+}
+
+html {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+/* Override site.css */
+.content {
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+#status {
+  background-color: #ffffc0;
+  color: #000000;
+  border: solid 1px black;
+  margin: 2pt;
+  padding: 2pt;
+  position: absolute;
+  top: 0;
+}
+#statusImage {
+  width: 16px;
+  height: 16px;
+}
+
+table, td, th {
+  border: none;
+}
+table {
+  font-size: 9pt;
+  border-collapse: collapse;
+}
+th, td {
+  white-space: nowrap;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.page {
+  page-break-inside: avoid;
+  page-break-after: always;
+  width: 11in;
+  height: 8.45in;
+  padding: 0; margin: 0; border: 0; overflow: hidden;
+}
+.page-half {
+  width: 5.5in;
+  height: 8.45in;
+  padding: 0; margin: 0; border: 0; overflow: hidden;
+  float: left;
+}
+
+@media only screen {
+  body.render {
+    text-align: center;
+    background-color: gray;
+    width: 100%;
+  }
+  .page {
+    text-align: left;
+    margin: 0.25in auto;
+    box-shadow: 0 0 30px 5px #202020;
+    background-color: white;
+    color: black;
+  }
+}
+
+/* Title Page ============================== */
+
+.title-page-left {
+  position: relative;
+}
+
+.title_top {
+  position: absolute;
+  left: 0.25in;
+  right: 0.25in;
+  height: 4in;
+}
+.title_title {
+  position: absolute;
+  bottom: 0;
+
+  font-style: italic;
+  font-size: 32pt;
+  font-family: Optima, Marcellus, serif;
+  font-weight: normal;
+}
+
+.title_middle {
+  position: absolute;
+  left: 0.25in;
+  right: 0.25in;
+  top: 4in;
+  height: 1.5in;
+
+  margin-top: 2pt;
+  border-top: 6pt solid black;
+}
+.title_logo {
+  text-align: left;
+  float: right;
+}
+.title_trav {
+  font-style: italic;
+  font-size: 52pt;
+  font-family: Optima, Marcellus, serif;
+  font-weight: bold;
+  margin-top: -4pt;
+  margin-bottom: -10pt;
+  letter-spacing: -1pt;
+}
+.title_reg {
+  font-size: 25%;
+  font-style: normal;
+}
+.title_adventure {
+  font-style: italic;
+  font-size: 22pt;
+  font-family: Optima, Marcellus, serif;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  padding-left: 6pt;
+}
+
+.title_publisher {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0.25in;
+  right: 0.25in;
+  top: 7in;
+
+  font-style: normal;
+  font-size: 24pt;
+  font-family: Optima, Marcellus, serif;
+  font-weight: normal;
+}
+
+.title-page-right {
+  position: relative;
+}
+
+.align-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+}
+
+.credits p {
+  white-space: normal;
+  text-align: justify;
+  margin: 0.1in 0.25in;
+}
+
+/* Sector Map ============================== */
+
+.sector-spread {
+  padding: 0.25in 0.5in;
+}
+.sector-image {
+  display: block;
+  border: solid 4px black;
+  width: 9.5in;
+}
+.map_title {
+  font-style: italic;
+  font-size: 32pt;
+  font-family: Optima, Marcellus, serif;
+  font-weight: bold;
+  margin: 0;
+}
+.map_subtitle {
+  font-style: normal;
+  font-size: 12pt;
+  font-family: Optima, Marcellus, serif;
+  font-weight: normal;
+  margin-bottom: 8pt;
+}
+
+
+/* SubSector ============================== */
+
+.ss-page-left {
+  height: 8.25in;
+  float: left;
+}
+.ss-page-left .content {
+  padding: 0.25in;
+}
+.ss-page-right .content {
+  padding-top: 0.25in;
+}
+.ss-page-right {
+  height: 8.25in;
+  float: left;
+}
+.subsector-body {
+  text-align: left;
+  white-space: normal;
+}
+
+.sparse table.uwp-data {
+  font-size: 9pt;
+}
+.dense table.uwp-data {
+  font-size: 7pt;
+}
+
+table.uwp-data {
+  width: 100%;
+  font-family: "PT Sans Narrow", "Helvetica Narrow", "Arial Narrow", Tahoma, sans-serif;
+}
+.uwp-data th {
+  text-align: left;
+  font-weight: normal;
+  font-style: italic;
+}
+.uwp-data th,
+.uwp-data td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.uwp-data th.world-remarks,
+.uwp-data td.world-remarks {
+  max-width: 150px;
+}
+
+.uwp-data .world-name.hipop { text-transform: uppercase; }
+
+
+.style-classic .world-ix,
+.style-classic .world-ex,
+.style-classic .world-cx,
+.style-classic .world-nobility,
+.style-classic .world-worlds { display: none; }
+
+.subsector-image,
+.subsector-image-border {
+  position: absolute;
+  border: solid 6px black;
+  width: 471px;
+  height: 684px;
+}
+
+.subsector-image {
+  display: block;
+  left: 20px;
+  top: 20px;
+  padding: 0;
+}
+.subsector-image-border {
+  left: 5px;
+  top: 5px;
+  padding: 15px;
+}
+.neighbor {
+  position: absolute;
+  width: 280px;
+  height: 15px;
+  padding: 2px;
+  background-color: white;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 12pt;
+  line-height: 9pt;
+  font-weight: bold;
+}
+.neighbor-c { left:  109px; top:    -14px; transform: rotate(180deg); }
+.neighbor-r { left:  109px; bottom: -14px; }
+.neighbor-t { right: -14px; top: 347px; transform: translateX(50%) rotate(270deg) translateY(-50%); }
+.neighbor-s { left:  -14px; top: 347px; transform: translateX(-50%) rotate(90deg) translateY(-50%); }
+
+.subsector_title {
+  white-space: nowrap;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24pt;
+  font-family: Optima, Marcellus, serif;
+  border-bottom: solid 6pt black;
+  margin-bottom: 2pt;
+}
+.blurb {
+  width: 360pt;
+  white-space: normal;
+  margin-bottom: 0;
+  text-align: justify;
+}
+
+.footer {
+  page-break-before: avoid;
+}
+
+.footer-left {
+  width: 5in;
+  height: 0.25in;
+  padding-left: 0.25in;
+  padding-right: 0.25in;
+  text-align: left;
+  float: left;
+}
+.footer-right {
+  width: 5in;
+  height: 0.25in;
+  padding-left: 0.25in;
+  padding-right: 0.25in;
+  text-align: right;
+  float: left;
+}
+
+
+/* Details ============================== */
+
+.details-page {
+  height: 8.25in;
+}
+
+.details-page .content {
+  padding: 0.25in;
+}
+
+.details_title {
+  white-space: nowrap;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24pt;
+  font-family: Optima, Marcellus, serif;
+  border-bottom: solid 6pt black;
+  margin-bottom: 2pt;
+}
+
+
+.details_title.right {
+  text-align: right;
+}
+
+/* Legend  ============================== */
+
+.legend h4 {
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.legend td {
+  vertical-align: top;
+  padding: 0 0.125in;
+}
+
+.legend ul {
+  padding-left: 0.25in;
+  margin: 0;
+}
+
+.legend li {
+  list-style: none;
+  height: 0.2in;
+}
+
+.legend .glyph {
+  display: inline-block;
+  width: 0.3in;
+  line-height: 12pt;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: text-bottom;
+}
+.legend .highlight { color: #E32736; }
+.legend .glyph.water { color: #00bfff; }
+.legend .amberzone { color: #FFCC00; }
+.legend .redzone { color: #E32736; }
+.legend .popname {
+  display: inline-block;
+  width: 0.75in;
+  text-align: left;
+}
+
+table.field-definitions td:first-of-type {
+  width: 0.75in;
+}
+
+table.allegiances td:first-of-type {
+  width: 0.5in;
+}
+table.allegiances td {
+  white-space: normal;
+  vertical-align: top;
+}
+
+table.subsector-grid {
+  border-collapse: collapse;
+  border: 0.03in solid black;
+  float: left;
+  margin-right: 20px;
+}
+table.subsector-grid td {
+  width: 0.25in;
+  height: 0.4in;
+  border: 0.03in solid black;
+  vertical-align: top;
+  font-weight: bold;
+}
+
+table.subsector-list tr td:first-of-type {
+  width: 0.3in;
+}
+
+/* Index ============================== */
+
+.index-page {
+  height: 8.25in;
+}
+
+.index-page .content {
+  padding: 0.25in;
+}
+
+.index_title {
+  white-space: nowrap;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24pt;
+  font-family: Optima, Marcellus, serif;
+  border-bottom: solid 6pt black;
+  margin-bottom: 2pt;
+}
+.index_title {
+  visibility: hidden;
+}
+.index-page.pp1 .index_title {
+  visibility: visible;
+}
+
+.index-column {
+  float: left;
+  margin-top: 0.15in;
+  width: 33%;
+}
+</style>
+<!--[if lt IE 10]>
+  <style>
+    .rotate90 { -ms-writing-mode: tb-rl; }
+    .rotate270 { -ms-writing-mode: tb-rl; }
+  </style>
+<![endif]-->
+
+  <!-- Status Display -->
+  <script src="chrome-extension://njgehaondchbmjmajphnhlojfnbfokng/js/contentScripts/dom.js"></script></head><body class="render">
+
+    <!-- Title Page -->
+    <div id="title_page" class="page">
+
+      <!-- Left: Title -->
+      <div class="page-half title-page-left">
+        <div class="title_top">
+          <div class="title_title">The Reft Sector</div>
+        </div>
+        <div class="title_middle">
+          <div class="title_logo">
+            <div class="title_trav">TRAVELLER<span class="title_reg">®</span></div>
+            <div class="title_adventure">Science-Fiction Adventure<br>in the Far Future</div>
+          </div>
+        </div>
+        <div class="title_publisher">Far Future Enterprises</div>
+      </div>
+
+      <!-- Right: Copyright and Credits -->
+      <div class="page-half title-page-right">
+        <div class="align-bottom credits">
+          <p>
+            The <b><i>TRAVELLER</i></b> game in all forms is owned
+            by Far Future Enterprises. Copyright
+            <span class="copyright">©</span> 1977 – 2023
+            Far Future Enterprises. <b><i>TRAVELLER</i></b> is a
+            registered trademark of Far Future Enterprises. Far
+            Future permits web sites and fanzines for this game,
+            provided it contains this notice, that Far Future is
+            notified, and subject to a withdrawal of permission on
+            90 days notice. The contents of this site are for
+            personal, non-commercial use only. Any use of Far Future
+            Enterprises's copyrighted material or trademarks
+            anywhere on this web site and its files should not be
+            viewed as a challenge to those copyrights or
+            trademarks. In addition, any program/articles/file on
+            this site cannot be republished or distributed without
+            the consent of the author who contributed it.
+          </p>
+
+
+
+
+
+          <p>Adapted from <cite>Traveller 5 Second Survey</cite>
+
+
+
+
+          </p><p>&nbsp;
+
+          </p><p>The current date for this supplement is circa Year 1105 Imperial.
+
+
+
+          </p><p>
+            Generated by TravellerMap.com
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sector Map -->
+    <div id="sector_spread" class="page">
+      <div class="sector-spread">
+        <div class="map_title">The Reft Sector</div>
+        <div class="map_subtitle">
+          A Detailed Stellar Sector in Charted Space  - Circa 1105
+        </div>
+        <img src="./The Reft Sector_files/Reft.svg" alt="" class="sector-image">
+      </div>
+    </div>
+
+    <!-- Subsector Pages -->
+    <div class="page" id="ssA">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Vestus Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">0102</td>
+                <td class="world-name ">Cauldron</td>
+                <td class="world-uwp">D988222-4</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ -3 }</td>
+                <td class="world-ex">(410-5)</td>
+                <td class="world-cx">[1111]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">403</td>
+                <td class="world-worlds">7</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">M0 V</td>
+              </tr><tr>
+                <td class="world-hex">0105</td>
+                <td class="world-name ">Iselen</td>
+                <td class="world-uwp">A543678-9</td>
+                <td class="world-remarks">Ni Po</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(B54+1)</td>
+                <td class="world-cx">[6659]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">403</td>
+                <td class="world-worlds">7</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G0 V</td>
+              </tr><tr>
+                <td class="world-hex">0106</td>
+                <td class="world-name ">Reudden</td>
+                <td class="world-uwp">B5536BG-7</td>
+                <td class="world-remarks">Ni Po Da</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(853+4)</td>
+                <td class="world-cx">[B5AC]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">400</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G4 V</td>
+              </tr><tr>
+                <td class="world-hex">0108</td>
+                <td class="world-name ">Kukaa</td>
+                <td class="world-uwp">C544100-A</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(600-4)</td>
+                <td class="world-cx">[1115]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">503</td>
+                <td class="world-worlds">7</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G1 V</td>
+              </tr><tr>
+                <td class="world-hex">0109</td>
+                <td class="world-name ">Amoirve</td>
+                <td class="world-uwp">B565476-B</td>
+                <td class="world-remarks">Ni Pa</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(A34+1)</td>
+                <td class="world-cx">[354A]</td>
+                <td class="world-nobility">Bc</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">704</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G8 V</td>
+              </tr><tr>
+                <td class="world-hex">0203</td>
+                <td class="world-name ">Solbatn</td>
+                <td class="world-uwp">B87A443-A</td>
+                <td class="world-remarks">Ni Wa</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(934-2)</td>
+                <td class="world-cx">[1527]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">603</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">K3 V</td>
+              </tr><tr>
+                <td class="world-hex">0208</td>
+                <td class="world-name ">Peshtorno</td>
+                <td class="world-uwp">B783841-8</td>
+                <td class="world-remarks">Ri Ph</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(E79-3)</td>
+                <td class="world-cx">[4914]</td>
+                <td class="world-nobility">BCe</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">622</td>
+                <td class="world-worlds">7</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G1 V</td>
+              </tr><tr>
+                <td class="world-hex">0210</td>
+                <td class="world-name ">Petre</td>
+                <td class="world-uwp">B696478-A</td>
+                <td class="world-remarks">Ni Pa</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(734+1)</td>
+                <td class="world-cx">[455A]</td>
+                <td class="world-nobility">Bc</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">210</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">F4 V</td>
+              </tr><tr>
+                <td class="world-hex">0305</td>
+                <td class="world-name ">Dimple</td>
+                <td class="world-uwp">D200201-8</td>
+                <td class="world-remarks">Lo Va</td>
+                <td class="world-ix">{ -3 }</td>
+                <td class="world-ex">(410-5)</td>
+                <td class="world-cx">[1114]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">S</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">500</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G1 V M1 V</td>
+              </tr><tr>
+                <td class="world-hex">0402</td>
+                <td class="world-name ">Benidorm</td>
+                <td class="world-uwp">E546400-8</td>
+                <td class="world-remarks">Ni Pa</td>
+                <td class="world-ix">{ -3 }</td>
+                <td class="world-ex">(831-5)</td>
+                <td class="world-cx">[1113]</td>
+                <td class="world-nobility">Bc</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">120</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G2 V</td>
+              </tr><tr>
+                <td class="world-hex">0408</td>
+                <td class="world-name ">Carian</td>
+                <td class="world-uwp">B300459-B</td>
+                <td class="world-remarks">Ni Va</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(C34+2)</td>
+                <td class="world-cx">[556C]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">924</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">M0 V M7 V</td>
+              </tr><tr>
+                <td class="world-hex">0410</td>
+                <td class="world-name ">Ambossa</td>
+                <td class="world-uwp">B684459-9</td>
+                <td class="world-remarks">Ni Pa</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(633+1)</td>
+                <td class="world-cx">[546A]</td>
+                <td class="world-nobility">Bc</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">700</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G2 V</td>
+              </tr><tr>
+                <td class="world-hex">0502</td>
+                <td class="world-name ">Corp Town</td>
+                <td class="world-uwp">B574211-B</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(411-3)</td>
+                <td class="world-cx">[1317]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">100</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">F6 V M1 V</td>
+              </tr><tr>
+                <td class="world-hex">0503</td>
+                <td class="world-name hipop">Lintl</td>
+                <td class="world-uwp">B739AEE-C</td>
+                <td class="world-remarks">Hi Pz</td>
+                <td class="world-ix">{ 3 }</td>
+                <td class="world-ex">(G9E+5)</td>
+                <td class="world-cx">[ED9G]</td>
+                <td class="world-nobility">BE</td>
+                <td class="world-base"></td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">404</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">K2 V</td>
+              </tr><tr>
+                <td class="world-hex">0602</td>
+                <td class="world-name ">Whisp</td>
+                <td class="world-uwp">C551110-6</td>
+                <td class="world-remarks">Lo Po</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(300-5)</td>
+                <td class="world-cx">[1111]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">204</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">A6 V F7 V</td>
+              </tr><tr>
+                <td class="world-hex">0604</td>
+                <td class="world-name ">Gaspar</td>
+                <td class="world-uwp">B436337-D</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(621+1)</td>
+                <td class="world-cx">[345D]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">801</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">M2 V</td>
+              </tr><tr>
+                <td class="world-hex">0605</td>
+                <td class="world-name ">Igualada</td>
+                <td class="world-uwp">B540567-9</td>
+                <td class="world-remarks">De He Ni Po O:0707</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(844+1)</td>
+                <td class="world-cx">[5559]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">701</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G2 V</td>
+              </tr><tr>
+                <td class="world-hex">0701</td>
+                <td class="world-name ">Mukiud</td>
+                <td class="world-uwp">B433210-D</td>
+                <td class="world-remarks">Lo Po</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(911-3)</td>
+                <td class="world-cx">[1318]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">823</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">M3 V</td>
+              </tr><tr>
+                <td class="world-hex">0702</td>
+                <td class="world-name ">Checker</td>
+                <td class="world-uwp">C300225-9</td>
+                <td class="world-remarks">Lo Va</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(A10-3)</td>
+                <td class="world-cx">[1137]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">615</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">M1 V M7 V</td>
+              </tr><tr>
+                <td class="world-hex">0707</td>
+                <td class="world-name hipop">Colony Five</td>
+                <td class="world-uwp">B5759A5-B</td>
+                <td class="world-remarks">Hi In Cp</td>
+                <td class="world-ix">{ 4 }</td>
+                <td class="world-ex">(D8F+2)</td>
+                <td class="world-cx">[7D39]</td>
+                <td class="world-nobility">BEF</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">420</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G9 IV M1 V</td>
+              </tr><tr>
+                <td class="world-hex">0710</td>
+                <td class="world-name ">Zaguki</td>
+                <td class="world-uwp">B560212-9</td>
+                <td class="world-remarks">De Lo</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(810-4)</td>
+                <td class="world-cx">[1215]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">804</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">F2 V M6 V</td>
+              </tr><tr>
+                <td class="world-hex">0801</td>
+                <td class="world-name ">Elixir</td>
+                <td class="world-uwp">B768321-9</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(A20-4)</td>
+                <td class="world-cx">[1315]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">423</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">F4 V</td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Vestus subsector contains
+            22 worlds with a
+             population of
+            44.6 billion.
+             
+              The highest population is
+              40 billion,
+              at Lintl.
+               
+            The highest tech level is D
+            at Gaspar and Mukiud.
+             The subsector capital is at Colony Five.
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_65.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">&nbsp;</div>
+            <div class="neighbor neighbor-t">Macon</div>
+            <div class="neighbor neighbor-r">Usher</div>
+            <div class="neighbor neighbor-s">&nbsp;</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector A of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssB">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Macon Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">0903</td>
+                <td class="world-name ">Evet's World</td>
+                <td class="world-uwp">B201656-D</td>
+                <td class="world-remarks">Ic Na Ni Va Da</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(B55+1)</td>
+                <td class="world-cx">[574C]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">N</td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">503</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">M3 V</td>
+              </tr><tr>
+                <td class="world-hex">1002</td>
+                <td class="world-name ">Ulnert</td>
+                <td class="world-uwp">B53769D-7</td>
+                <td class="world-remarks">Ni Da</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(853+3)</td>
+                <td class="world-cx">[A59B]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">803</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">K4 V M8 V</td>
+              </tr><tr>
+                <td class="world-hex">1102</td>
+                <td class="world-name ">Earl Center</td>
+                <td class="world-uwp">A998111-9</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(700-4)</td>
+                <td class="world-cx">[1115]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">604</td>
+                <td class="world-worlds">7</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">K9 V</td>
+              </tr><tr>
+                <td class="world-hex">1103</td>
+                <td class="world-name ">Yvette</td>
+                <td class="world-uwp">A79A633-D</td>
+                <td class="world-remarks">Ni Wa</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(E55-2)</td>
+                <td class="world-cx">[372A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">133</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G2 V</td>
+              </tr><tr>
+                <td class="world-hex">1204</td>
+                <td class="world-name ">Oleiros</td>
+                <td class="world-uwp">B000457-D</td>
+                <td class="world-remarks">As Ni Va</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(634+1)</td>
+                <td class="world-cx">[455D]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">300</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">M1 V</td>
+              </tr><tr>
+                <td class="world-hex">1301</td>
+                <td class="world-name ">Sestao</td>
+                <td class="world-uwp">A420675-C</td>
+                <td class="world-remarks">De He Na Ni Po</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(A55-1)</td>
+                <td class="world-cx">[473A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">611</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">M0 V</td>
+              </tr><tr>
+                <td class="world-hex">1302</td>
+                <td class="world-name hipop">Gorod</td>
+                <td class="world-uwp">D6689CG-7</td>
+                <td class="world-remarks">Hi Pr Pz</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(B88+4)</td>
+                <td class="world-cx">[E8AC]</td>
+                <td class="world-nobility">BcE</td>
+                <td class="world-base"></td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">111</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">K4 V M1 V</td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Macon subsector contains
+            7 worlds with a
+             population of
+            1 billion.
+             
+              The highest population is
+              1 billion,
+              at Gorod.
+               
+            The highest tech level is D
+            at Evet's World, Yvette and Oleiros.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_66.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">&nbsp;</div>
+            <div class="neighbor neighbor-t">Two Little</div>
+            <div class="neighbor neighbor-r">Sagittarian</div>
+            <div class="neighbor neighbor-s">Vestus</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector B of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssC">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Two Little Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">1907</td>
+                <td class="world-name hipop">Aum-rhar</td>
+                <td class="world-uwp">A857948-C</td>
+                <td class="world-remarks">Hi Ga (Tezcat) Di(Varaku)</td>
+                <td class="world-ix">{ 3 }</td>
+                <td class="world-ex">(H8E+3)</td>
+                <td class="world-cx">[9C5C]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">824</td>
+                <td class="world-worlds">14</td>
+                <td class="world-alleg">NaXX</td>
+                <td class="world-stellar">K9 V</td>
+              </tr><tr>
+                <td class="world-hex">2108</td>
+                <td class="world-name ">Zamoran</td>
+                <td class="world-uwp">B674675-A</td>
+                <td class="world-remarks">Ag Ni Droy4</td>
+                <td class="world-ix">{ 2 }</td>
+                <td class="world-ex">(C56+1)</td>
+                <td class="world-cx">[4838]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">M</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">904</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">F5 V</td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Two Little subsector contains
+            2 worlds with a
+             population of
+            8 billion.
+             
+              The highest population is
+              8 billion,
+              at Aum-rhar.
+               
+            The highest tech level is C
+            at Aum-rhar.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_67.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">&nbsp;</div>
+            <div class="neighbor neighbor-t">Barker</div>
+            <div class="neighbor neighbor-r">Lost Way</div>
+            <div class="neighbor neighbor-s">Macon</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector C of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssD">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Barker Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">2509</td>
+                <td class="world-name ">Arnorac</td>
+                <td class="world-uwp">B581468-A</td>
+                <td class="world-remarks">Ni Mr</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(834+1)</td>
+                <td class="world-cx">[455A]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">302</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">CsIm</td>
+                <td class="world-stellar">K8 V</td>
+              </tr><tr>
+                <td class="world-hex">2609</td>
+                <td class="world-name ">Gordon</td>
+                <td class="world-uwp">B310776-A</td>
+                <td class="world-remarks">Na Pi</td>
+                <td class="world-ix">{ 2 }</td>
+                <td class="world-ex">(C6B+1)</td>
+                <td class="world-cx">[6949]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">203</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">M3 V M4 V</td>
+              </tr><tr>
+                <td class="world-hex">2904</td>
+                <td class="world-name ">Schuuni</td>
+                <td class="world-uwp">BA9A599-D</td>
+                <td class="world-remarks">Ni Oc</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(745+2)</td>
+                <td class="world-cx">[666E]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">100</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G0 V</td>
+              </tr><tr>
+                <td class="world-hex">3103</td>
+                <td class="world-name ">Ishlagu Calibration Point</td>
+                <td class="world-uwp">???????-?</td>
+                <td class="world-remarks">{Anomaly}</td>
+                <td class="world-ix"></td>
+                <td class="world-ex"></td>
+                <td class="world-cx"></td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">???</td>
+                <td class="world-worlds"></td>
+                <td class="world-alleg"></td>
+                <td class="world-stellar"></td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Barker subsector contains
+            4 worlds with a
+             population of
+            20.1 million.
+             
+              The highest population is
+              20 million,
+              at Gordon.
+               
+            The highest tech level is D
+            at Schuuni.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_68.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">&nbsp;</div>
+            <div class="neighbor neighbor-t">&nbsp;</div>
+            <div class="neighbor neighbor-r">Gome</div>
+            <div class="neighbor neighbor-s">Two Little</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector D of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssE">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Usher Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">0111</td>
+                <td class="world-name ">Grudovo</td>
+                <td class="world-uwp">B560453-C</td>
+                <td class="world-remarks">De Ni</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(B34-2)</td>
+                <td class="world-cx">[1529]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">914</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">K0 IV D</td>
+              </tr><tr>
+                <td class="world-hex">0112</td>
+                <td class="world-name ">Banskonno</td>
+                <td class="world-uwp">A582444-C</td>
+                <td class="world-remarks">Ni Droy6</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(A34-1)</td>
+                <td class="world-cx">[253A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">204</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G0 V</td>
+              </tr><tr>
+                <td class="world-hex">0118</td>
+                <td class="world-name ">Bastion</td>
+                <td class="world-uwp">B737532-B</td>
+                <td class="world-remarks">Ni</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(845-3)</td>
+                <td class="world-cx">[1617]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">401</td>
+                <td class="world-worlds">6</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">A9 V K4 V</td>
+              </tr><tr>
+                <td class="world-hex">0212</td>
+                <td class="world-name ">Aldaya</td>
+                <td class="world-uwp">B885620-6</td>
+                <td class="world-remarks">Ag Ni Ga Ri</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(855-3)</td>
+                <td class="world-cx">[1711]</td>
+                <td class="world-nobility">BC</td>
+                <td class="world-base">S</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">423</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">K4 V</td>
+              </tr><tr>
+                <td class="world-hex">0216</td>
+                <td class="world-name ">Neon</td>
+                <td class="world-uwp">D78227A-7</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ -3 }</td>
+                <td class="world-ex">(410-1)</td>
+                <td class="world-cx">[4179]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">923</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">F6 V M4 V</td>
+              </tr><tr>
+                <td class="world-hex">0217</td>
+                <td class="world-name ">Cerebin</td>
+                <td class="world-uwp">B423662-C</td>
+                <td class="world-remarks">Na Ni Po O:Troj-3215</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(F55-3)</td>
+                <td class="world-cx">[2718]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">534</td>
+                <td class="world-worlds">14</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">G1 IV</td>
+              </tr><tr>
+                <td class="world-hex">0313</td>
+                <td class="world-name ">Helifil</td>
+                <td class="world-uwp">D310724-8</td>
+                <td class="world-remarks">Na Pi RsB</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(C66-4)</td>
+                <td class="world-cx">[5536]</td>
+                <td class="world-nobility">BD</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">403</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">K1 V</td>
+              </tr><tr>
+                <td class="world-hex">0416</td>
+                <td class="world-name ">Tonnurad</td>
+                <td class="world-uwp">B563695-7</td>
+                <td class="world-remarks">Ni Ri</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(854-2)</td>
+                <td class="world-cx">[4635]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">803</td>
+                <td class="world-worlds">7</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G3 V M5 V G5 V</td>
+              </tr><tr>
+                <td class="world-hex">0511</td>
+                <td class="world-name ">Fraaga</td>
+                <td class="world-uwp">B691420-B</td>
+                <td class="world-remarks">He Ni</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(834-3)</td>
+                <td class="world-cx">[1516]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">702</td>
+                <td class="world-worlds">15</td>
+                <td class="world-alleg">ImDd</td>
+                <td class="world-stellar">K2 V M9 V M1 V</td>
+              </tr><tr>
+                <td class="world-hex">0613</td>
+                <td class="world-name ">Usher Proto-System</td>
+                <td class="world-uwp">???????-?</td>
+                <td class="world-remarks">{Anomaly}</td>
+                <td class="world-ix"></td>
+                <td class="world-ex"></td>
+                <td class="world-cx"></td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">???</td>
+                <td class="world-worlds"></td>
+                <td class="world-alleg"></td>
+                <td class="world-stellar"></td>
+              </tr><tr>
+                <td class="world-hex">0618</td>
+                <td class="world-name ">Chandler Station</td>
+                <td class="world-uwp">???????-?</td>
+                <td class="world-remarks">{Anomaly}</td>
+                <td class="world-ix"></td>
+                <td class="world-ex"></td>
+                <td class="world-cx"></td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">???</td>
+                <td class="world-worlds"></td>
+                <td class="world-alleg"></td>
+                <td class="world-stellar"></td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Usher subsector contains
+            11 worlds with a
+             population of
+            57.6 million.
+             
+              The highest population is
+              40 million,
+              at Helifil.
+               
+            The highest tech level is C
+            at Grudovo, Banskonno and Cerebin.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_69.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">Vestus</div>
+            <div class="neighbor neighbor-t">Sagittarian</div>
+            <div class="neighbor neighbor-r">Void 8</div>
+            <div class="neighbor neighbor-s">&nbsp;</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector E of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssF">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Sagittarian Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">1314</td>
+                <td class="world-name ">R'Bak</td>
+                <td class="world-uwp">X587777-2</td>
+                <td class="world-remarks">Ag Ri Fo</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(965+1)</td>
+                <td class="world-cx">[7752]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone">R</td>
+                <td class="world-pbg">721</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G3 V</td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Sagittarian subsector contains one world,
+            R'Bak, with a population of
+            70 million.
+             
+            The highest tech level is 2
+            at R'Bak.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_70.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">Macon</div>
+            <div class="neighbor neighbor-t">Lost Way</div>
+            <div class="neighbor neighbor-r">New Islands</div>
+            <div class="neighbor neighbor-s">Usher</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector F of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssG">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Lost Way Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">1812</td>
+                <td class="world-name ">Undrelyn</td>
+                <td class="world-uwp">B551433-6</td>
+                <td class="world-remarks">Ni Po Da Chir2</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(632-4)</td>
+                <td class="world-cx">[1323]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">514</td>
+                <td class="world-worlds">12</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">F1 V D</td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Lost Way subsector contains one world,
+            Undrelyn, with a population of
+            50 thousand.
+             
+            The highest tech level is 6
+            at Undrelyn.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_71.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">Two Little</div>
+            <div class="neighbor neighbor-t">Gome</div>
+            <div class="neighbor neighbor-r">Old Islands</div>
+            <div class="neighbor neighbor-s">Sagittarian</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector G of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssH">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Gome Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">2714</td>
+                <td class="world-name ">Roguestar</td>
+                <td class="world-uwp">???????-?</td>
+                <td class="world-remarks">{Anomaly}</td>
+                <td class="world-ix"></td>
+                <td class="world-ex"></td>
+                <td class="world-cx"></td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">???</td>
+                <td class="world-worlds"></td>
+                <td class="world-alleg"></td>
+                <td class="world-stellar"></td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Gome subsector contains one world,
+            Roguestar, with a population of
+            0.
+             
+            The highest tech level is ?
+            at Roguestar.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_72.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">Barker</div>
+            <div class="neighbor neighbor-t">&nbsp;</div>
+            <div class="neighbor neighbor-r">Limon</div>
+            <div class="neighbor neighbor-s">Lost Way</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector H of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssI">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Void 8 Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+            </tr></tbody></table>
+
+            <p class="blurb">The Void 8 subsector contains no charted worlds.
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_73.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">Usher</div>
+            <div class="neighbor neighbor-t">New Islands</div>
+            <div class="neighbor neighbor-r">Alone</div>
+            <div class="neighbor neighbor-s">&nbsp;</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector I of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssJ">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The New Islands Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">0921</td>
+                <td class="world-name ">Zuflucht</td>
+                <td class="world-uwp">C545720-8</td>
+                <td class="world-remarks">Ag Pi</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(A68-4)</td>
+                <td class="world-cx">[2713]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">M</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">610</td>
+                <td class="world-worlds">6</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">F0 V F8 V</td>
+              </tr><tr>
+                <td class="world-hex">0925</td>
+                <td class="world-name ">Wellington</td>
+                <td class="world-uwp">C8B0263-A</td>
+                <td class="world-remarks">He Lo O:0926</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(410-3)</td>
+                <td class="world-cx">[1227]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">600</td>
+                <td class="world-worlds">7</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G9 V M2 V</td>
+              </tr><tr>
+                <td class="world-hex">0926</td>
+                <td class="world-name hipop">Esperanza</td>
+                <td class="world-uwp">A674ABC-B</td>
+                <td class="world-remarks">Hi In Pz Di(Droyne)</td>
+                <td class="world-ix">{ 5 }</td>
+                <td class="world-ex">(G9G+5)</td>
+                <td class="world-cx">[DF8E]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">KM</td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">113</td>
+                <td class="world-worlds">16</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">F7 V</td>
+              </tr><tr>
+                <td class="world-hex">0930</td>
+                <td class="world-name ">St. Hilaire</td>
+                <td class="world-uwp">B579763-A</td>
+                <td class="world-remarks">Pi O:0926</td>
+                <td class="world-ix">{ 2 }</td>
+                <td class="world-ex">(96B-1)</td>
+                <td class="world-cx">[4927]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">M</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">900</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">K1 V D</td>
+              </tr><tr>
+                <td class="world-hex">1030</td>
+                <td class="world-name ">Nebelwelt</td>
+                <td class="world-uwp">C879425-5</td>
+                <td class="world-remarks">Ni</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(631-4)</td>
+                <td class="world-cx">[2233]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">202</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">K3 V</td>
+              </tr><tr>
+                <td class="world-hex">1123</td>
+                <td class="world-name ">Gloire</td>
+                <td class="world-uwp">C764567-9</td>
+                <td class="world-remarks">Ag Ni Pr O:1323</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(B44+1)</td>
+                <td class="world-cx">[5559]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">301</td>
+                <td class="world-worlds">14</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G7 V</td>
+              </tr><tr>
+                <td class="world-hex">1323</td>
+                <td class="world-name hipop">Serendip Belt</td>
+                <td class="world-uwp">A000949-C</td>
+                <td class="world-remarks">As Hi In Na Va</td>
+                <td class="world-ix">{ 5 }</td>
+                <td class="world-ex">(E8G+5)</td>
+                <td class="world-cx">[AE6D]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">KM</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">223</td>
+                <td class="world-worlds">15</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">F9 V</td>
+              </tr><tr>
+                <td class="world-hex">1327</td>
+                <td class="world-name hipop">New Colchis</td>
+                <td class="world-uwp">A8959AA-C</td>
+                <td class="world-remarks">Hi In Pz</td>
+                <td class="world-ix">{ 5 }</td>
+                <td class="world-ex">(B8G+5)</td>
+                <td class="world-cx">[BE7E]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">KM</td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">300</td>
+                <td class="world-worlds">6</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">K1 V K9 V</td>
+              </tr><tr>
+                <td class="world-hex">1426</td>
+                <td class="world-name ">Herzenslust</td>
+                <td class="world-uwp">E995765-6</td>
+                <td class="world-remarks">Ag Pi O:1327</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(966-3)</td>
+                <td class="world-cx">[5634]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">602</td>
+                <td class="world-worlds">14</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G6 V</td>
+              </tr><tr>
+                <td class="world-hex">1429</td>
+                <td class="world-name ">Orphee</td>
+                <td class="world-uwp">X885610-0</td>
+                <td class="world-remarks">Ag Ni Ga Ri Fo (Orpheides)</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(853-5)</td>
+                <td class="world-cx">[1511]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone">R</td>
+                <td class="world-pbg">110</td>
+                <td class="world-worlds">6</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G9 V M0 V</td>
+              </tr><tr>
+                <td class="world-hex">1522</td>
+                <td class="world-name ">Topas</td>
+                <td class="world-uwp">D420899-7</td>
+                <td class="world-remarks">De He Na Po Ph Pi</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(A76-1)</td>
+                <td class="world-cx">[9668]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">301</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">F7 V</td>
+              </tr><tr>
+                <td class="world-hex">1525</td>
+                <td class="world-name ">Elysee</td>
+                <td class="world-uwp">B502532-9</td>
+                <td class="world-remarks">Ic Ni Va</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(844-4)</td>
+                <td class="world-cx">[1515]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">M</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">820</td>
+                <td class="world-worlds">6</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G1 V M2 V</td>
+              </tr><tr>
+                <td class="world-hex">1526</td>
+                <td class="world-name ">Besancon</td>
+                <td class="world-uwp">C201341-9</td>
+                <td class="world-remarks">Ic Lo Va</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(720-5)</td>
+                <td class="world-cx">[1215]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">M</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">604</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">K0 V M3 V</td>
+              </tr><tr>
+                <td class="world-hex">1621</td>
+                <td class="world-name ">Berlichingen</td>
+                <td class="world-uwp">D500437-8</td>
+                <td class="world-remarks">Ni Va</td>
+                <td class="world-ix">{ -3 }</td>
+                <td class="world-ex">(631-3)</td>
+                <td class="world-cx">[4158]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">600</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">M3 V M3 V</td>
+              </tr><tr>
+                <td class="world-hex">1628</td>
+                <td class="world-name hipop">Joyeuse</td>
+                <td class="world-uwp">A7899B9-C</td>
+                <td class="world-remarks">Hi Pr Pz</td>
+                <td class="world-ix">{ 4 }</td>
+                <td class="world-ex">(F8F+5)</td>
+                <td class="world-cx">[AD6D]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">KM</td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">304</td>
+                <td class="world-worlds">12</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G3 V</td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The New Islands subsector contains
+            15 worlds with a
+             population of
+            18.5 billion.
+             
+              The highest population is
+              10 billion,
+              at Esperanza.
+               
+            The highest tech level is C
+            at Serendip Belt, New Colchis and Joyeuse.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_74.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">Sagittarian</div>
+            <div class="neighbor neighbor-t">Old Islands</div>
+            <div class="neighbor neighbor-r">Evestin</div>
+            <div class="neighbor neighbor-s">Void 8</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector J of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssK">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Old Islands Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">1724</td>
+                <td class="world-name ">Sturgeon's Law</td>
+                <td class="world-uwp">DAC1451-9</td>
+                <td class="world-remarks">Fl He Ni</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(B31-5)</td>
+                <td class="world-cx">[1215]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">301</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">K0 IV</td>
+              </tr><tr>
+                <td class="world-hex">1729</td>
+                <td class="world-name ">Quichotte</td>
+                <td class="world-uwp">E576667-6</td>
+                <td class="world-remarks">Ag Ni O:1628</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(852-2)</td>
+                <td class="world-cx">[6456]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">M</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">601</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G4 V</td>
+              </tr><tr>
+                <td class="world-hex">1822</td>
+                <td class="world-name hipop">Neubayern</td>
+                <td class="world-uwp">A7889C9-C</td>
+                <td class="world-remarks">Hi Pr Pz</td>
+                <td class="world-ix">{ 4 }</td>
+                <td class="world-ex">(C8F+5)</td>
+                <td class="world-cx">[AD6D]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">KM</td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">310</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G0 V K7 V</td>
+              </tr><tr>
+                <td class="world-hex">1923</td>
+                <td class="world-name ">Schlesien Belt</td>
+                <td class="world-uwp">C000367-B</td>
+                <td class="world-remarks">As Lo Va O:1822</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(720+1)</td>
+                <td class="world-cx">[335B]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">M</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">122</td>
+                <td class="world-worlds">7</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">M3 V</td>
+              </tr><tr>
+                <td class="world-hex">1925</td>
+                <td class="world-name ">New Home</td>
+                <td class="world-uwp">A565857-D</td>
+                <td class="world-remarks">Ri Pa Ph</td>
+                <td class="world-ix">{ 4 }</td>
+                <td class="world-ex">(D7F+4)</td>
+                <td class="world-cx">[8C5D]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">KM</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">811</td>
+                <td class="world-worlds">15</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G2 V</td>
+              </tr><tr>
+                <td class="world-hex">2026</td>
+                <td class="world-name ">Colchis</td>
+                <td class="world-uwp">B676898-9</td>
+                <td class="world-remarks">Pa Ph Pi</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(B7A+1)</td>
+                <td class="world-cx">[8959]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">M</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">501</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G8 V</td>
+              </tr><tr>
+                <td class="world-hex">2123</td>
+                <td class="world-name ">St. Genevieve</td>
+                <td class="world-uwp">C560100-A</td>
+                <td class="world-remarks">De Lo</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(700-4)</td>
+                <td class="world-cx">[1115]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">M</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">802</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">K0 V</td>
+              </tr><tr>
+                <td class="world-hex">2225</td>
+                <td class="world-name ">Acadie</td>
+                <td class="world-uwp">C868563-9</td>
+                <td class="world-remarks">Ag Ni Pr O:2325</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(744-3)</td>
+                <td class="world-cx">[2526]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">600</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">K0 V D</td>
+              </tr><tr>
+                <td class="world-hex">2322</td>
+                <td class="world-name hipop">Sansterre</td>
+                <td class="world-uwp">A87A943-C</td>
+                <td class="world-remarks">Hi In Wa</td>
+                <td class="world-ix">{ 5 }</td>
+                <td class="world-ex">(E8G+2)</td>
+                <td class="world-cx">[6E29]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">KM</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">311</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G9 V</td>
+              </tr><tr>
+                <td class="world-hex">2324</td>
+                <td class="world-name ">Achille</td>
+                <td class="world-uwp">E301335-9</td>
+                <td class="world-remarks">Ic Lo Va</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(620-4)</td>
+                <td class="world-cx">[1137]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">120</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G7 III</td>
+              </tr><tr>
+                <td class="world-hex">2325</td>
+                <td class="world-name hipop">Amondiage</td>
+                <td class="world-uwp">A5629A9-C</td>
+                <td class="world-remarks">Hi Pr</td>
+                <td class="world-ix">{ 4 }</td>
+                <td class="world-ex">(D8F+5)</td>
+                <td class="world-cx">[AD6D]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">KM</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">304</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G1 V</td>
+              </tr><tr>
+                <td class="world-hex">2423</td>
+                <td class="world-name ">St. Denis</td>
+                <td class="world-uwp">D735764-7</td>
+                <td class="world-remarks">O:2322</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(966-4)</td>
+                <td class="world-cx">[5535]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base">M</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">711</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">G8 V</td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Old Islands subsector contains
+            12 worlds with a
+             population of
+            10.4 billion.
+             
+              The highest population is
+              3 billion,
+              at Neubayern.
+               
+            The highest tech level is D
+            at New Home.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_75.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">Lost Way</div>
+            <div class="neighbor neighbor-t">Limon</div>
+            <div class="neighbor neighbor-r">Arcrant</div>
+            <div class="neighbor neighbor-s">New Islands</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector K of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssL">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Limon Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">2528</td>
+                <td class="world-name ">Riftspan Station</td>
+                <td class="world-uwp">???????-?</td>
+                <td class="world-remarks">{Anomaly}</td>
+                <td class="world-ix"></td>
+                <td class="world-ex"></td>
+                <td class="world-cx"></td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">???</td>
+                <td class="world-worlds"></td>
+                <td class="world-alleg"></td>
+                <td class="world-stellar"></td>
+              </tr><tr>
+                <td class="world-hex">2930</td>
+                <td class="world-name ">Cyclone</td>
+                <td class="world-uwp">B599347-9</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(920+1)</td>
+                <td class="world-cx">[3359]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">204</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G9 V M1 V</td>
+              </tr><tr>
+                <td class="world-hex">3028</td>
+                <td class="world-name ">Eskandor</td>
+                <td class="world-uwp">C551499-9</td>
+                <td class="world-remarks">Ni Po</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(A32+1)</td>
+                <td class="world-cx">[536A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">804</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G3 V</td>
+              </tr><tr>
+                <td class="world-hex">3029</td>
+                <td class="world-name ">Sakaliin</td>
+                <td class="world-uwp">B857222-B</td>
+                <td class="world-remarks">Lo Ga</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(811-3)</td>
+                <td class="world-cx">[1317]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">413</td>
+                <td class="world-worlds">7</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F0 V M9 V</td>
+              </tr><tr>
+                <td class="world-hex">3030</td>
+                <td class="world-name ">Rampart</td>
+                <td class="world-uwp">A434200-F</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(711-3)</td>
+                <td class="world-cx">[131A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">812</td>
+                <td class="world-worlds">6</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">M3 V M8 V</td>
+              </tr><tr>
+                <td class="world-hex">3128</td>
+                <td class="world-name ">Jokelyn</td>
+                <td class="world-uwp">B201469-B</td>
+                <td class="world-remarks">Ic Ni Va O:Gush-0130</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(C34+2)</td>
+                <td class="world-cx">[556C]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">915</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">M3 V</td>
+              </tr><tr>
+                <td class="world-hex">3229</td>
+                <td class="world-name ">Hoilhapuli</td>
+                <td class="world-uwp">B76565A-8</td>
+                <td class="world-remarks">Ag Ni Ga Ri Tapa2</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(G55+3)</td>
+                <td class="world-cx">[877A]</td>
+                <td class="world-nobility">BC</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">335</td>
+                <td class="world-worlds">17</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F1 V</td>
+              </tr><tr>
+                <td class="world-hex">3230</td>
+                <td class="world-name ">Bonn</td>
+                <td class="world-uwp">A8C578C-B</td>
+                <td class="world-remarks">Fl Pz</td>
+                <td class="world-ix">{ 2 }</td>
+                <td class="world-ex">(D6C+5)</td>
+                <td class="world-cx">[A98E]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">913</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">M1 V M2 V</td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Limon subsector contains
+            8 worlds with a
+             population of
+            93.2 million.
+             
+              The highest population is
+              90 million,
+              at Bonn.
+               
+            The highest tech level is F
+            at Rampart.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_76.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">Gome</div>
+            <div class="neighbor neighbor-t">&nbsp;</div>
+            <div class="neighbor neighbor-r">Moibin</div>
+            <div class="neighbor neighbor-s">Old Islands</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector L of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssM">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Alone Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">0134</td>
+                <td class="world-name ">Hope Freeport</td>
+                <td class="world-uwp">???????-?</td>
+                <td class="world-remarks">{Anomaly}</td>
+                <td class="world-ix"></td>
+                <td class="world-ex"></td>
+                <td class="world-cx"></td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">???</td>
+                <td class="world-worlds"></td>
+                <td class="world-alleg"></td>
+                <td class="world-stellar"></td>
+              </tr><tr>
+                <td class="world-hex">0435</td>
+                <td class="world-name ">Garden</td>
+                <td class="world-uwp">B755578-A</td>
+                <td class="world-remarks">Ag Ni Ga Di(Salika)</td>
+                <td class="world-ix">{ 2 }</td>
+                <td class="world-ex">(B46+2)</td>
+                <td class="world-cx">[575A]</td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">404</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">NaHu</td>
+                <td class="world-stellar">K4 V M4 V</td>
+              </tr><tr>
+                <td class="world-hex">0539</td>
+                <td class="world-name ">Rogue Dwarf</td>
+                <td class="world-uwp">???????-?</td>
+                <td class="world-remarks">{Anomaly}</td>
+                <td class="world-ix"></td>
+                <td class="world-ex"></td>
+                <td class="world-cx"></td>
+                <td class="world-nobility"></td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">???</td>
+                <td class="world-worlds"></td>
+                <td class="world-alleg"></td>
+                <td class="world-stellar"></td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Alone subsector contains
+            3 worlds with a
+             population of
+            400 thousand.
+             
+              The highest population is
+              400 thousand,
+              at Garden.
+               
+            The highest tech level is A
+            at Garden.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_77.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">Void 8</div>
+            <div class="neighbor neighbor-t">Evestin</div>
+            <div class="neighbor neighbor-r">&nbsp;</div>
+            <div class="neighbor neighbor-s">&nbsp;</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector M of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssN">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Evestin Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+            </tr></tbody></table>
+
+            <p class="blurb">The Evestin subsector contains no charted worlds.
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_78.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">New Islands</div>
+            <div class="neighbor neighbor-t">Arcrant</div>
+            <div class="neighbor neighbor-r">&nbsp;</div>
+            <div class="neighbor neighbor-s">Alone</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector N of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssO">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Arcrant Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">2139</td>
+                <td class="world-name ">Arraste</td>
+                <td class="world-uwp">B59368B-6</td>
+                <td class="world-remarks">Ni</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(853+1)</td>
+                <td class="world-cx">[8578]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">604</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K7 V M5 V</td>
+              </tr><tr>
+                <td class="world-hex">2239</td>
+                <td class="world-name ">Jacob</td>
+                <td class="world-uwp">B100400-E</td>
+                <td class="world-remarks">Ni Va</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(834-3)</td>
+                <td class="world-cx">[1519]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">302</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">M1 V</td>
+              </tr><tr>
+                <td class="world-hex">2240</td>
+                <td class="world-name ">Fresneise</td>
+                <td class="world-uwp">B728512-A</td>
+                <td class="world-remarks">Ni</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(B45-3)</td>
+                <td class="world-cx">[1616]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">622</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">M3 V M7 V</td>
+              </tr><tr>
+                <td class="world-hex">2337</td>
+                <td class="world-name ">Pit Stop</td>
+                <td class="world-uwp">B593326-A</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(721+1)</td>
+                <td class="world-cx">[2449]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">S</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">311</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G1 V</td>
+              </tr><tr>
+                <td class="world-hex">2435</td>
+                <td class="world-name ">Uxors</td>
+                <td class="world-uwp">BA97677-5</td>
+                <td class="world-remarks">Ag Ni An ChirW</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(854+1)</td>
+                <td class="world-cx">[6655]</td>
+                <td class="world-nobility">BC</td>
+                <td class="world-base">S</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">804</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">M1 V</td>
+              </tr><tr>
+                <td class="world-hex">2436</td>
+                <td class="world-name ">Mieniept</td>
+                <td class="world-uwp">B794454-B</td>
+                <td class="world-remarks">Ni Pa</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(634-1)</td>
+                <td class="world-cx">[2539]</td>
+                <td class="world-nobility">Bc</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">800</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G0 V</td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Arcrant subsector contains
+            6 worlds with a
+             population of
+            14.7 million.
+             
+              The highest population is
+              8 million,
+              at Uxors.
+               
+            The highest tech level is E
+            at Jacob.
+            
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_79.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">Old Islands</div>
+            <div class="neighbor neighbor-t">Moibin</div>
+            <div class="neighbor neighbor-r">&nbsp;</div>
+            <div class="neighbor neighbor-s">Evestin</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector O of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+    <div class="page" id="ssP">
+      <!-- Left: World Data -->
+      <div class="page-half ss-page-left">
+        <div class="content">
+          <div class="subsector_title">The Moibin Subsector</div>
+          <div class="subsector-body sparse">
+
+            <table class="uwp-data">
+              <tbody><tr>
+                <th class="world-hex">Hex</th>
+                <th class="world-name">Name</th>
+                <th class="world-uwp">UWP</th>
+                <th class="world-remarks">Remarks</th>
+                <th class="world-ix">{Ix}</th>
+                <th class="world-ex">(Ex)</th>
+                <th class="world-cx">[Cx]</th>
+                <th class="world-nobility">N</th>
+                <th class="world-base">B</th>
+                <th class="world-zone">Z</th>
+                <th class="world-pbg">PBG</th>
+                <th class="world-worlds">W</th>
+                <th class="world-alleg">A</th>
+                <th class="world-stellar">Stellar</th>
+
+              </tr><tr>
+                <td class="world-hex">2534</td>
+                <td class="world-name ">Quiver</td>
+                <td class="world-uwp">B310405-D</td>
+                <td class="world-remarks">Ni</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(A34-1)</td>
+                <td class="world-cx">[253B]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">404</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K7 V M1 V</td>
+              </tr><tr>
+                <td class="world-hex">2536</td>
+                <td class="world-name hipop">Argus</td>
+                <td class="world-uwp">C755A96-8</td>
+                <td class="world-remarks">Hi Ga</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(F99-1)</td>
+                <td class="world-cx">[9A47]</td>
+                <td class="world-nobility">BE</td>
+                <td class="world-base">S</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">403</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G4 V</td>
+              </tr><tr>
+                <td class="world-hex">2537</td>
+                <td class="world-name ">Boneyard</td>
+                <td class="world-uwp">B420310-A</td>
+                <td class="world-remarks">De He Lo Po</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(A21-3)</td>
+                <td class="world-cx">[1415]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">914</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G2 V M8 V</td>
+              </tr><tr>
+                <td class="world-hex">2538</td>
+                <td class="world-name ">Delinski</td>
+                <td class="world-uwp">B55367A-8</td>
+                <td class="world-remarks">Ni Po</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(D53+1)</td>
+                <td class="world-cx">[857A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">914</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K4 V M6 V</td>
+              </tr><tr>
+                <td class="world-hex">2539</td>
+                <td class="world-name ">Valentorn</td>
+                <td class="world-uwp">D556512-4</td>
+                <td class="world-remarks">Ag Ni</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(742-5)</td>
+                <td class="world-cx">[1311]</td>
+                <td class="world-nobility">BC</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">900</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F0 V</td>
+              </tr><tr>
+                <td class="world-hex">2540</td>
+                <td class="world-name ">Haliburn</td>
+                <td class="world-uwp">B565777-7</td>
+                <td class="world-remarks">Ag Ri</td>
+                <td class="world-ix">{ 2 }</td>
+                <td class="world-ex">(96A+2)</td>
+                <td class="world-cx">[7957]</td>
+                <td class="world-nobility">BC</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">514</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K9 V</td>
+              </tr><tr>
+                <td class="world-hex">2636</td>
+                <td class="world-name ">Stock Point 3</td>
+                <td class="world-uwp">A436110-F</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(301-3)</td>
+                <td class="world-cx">[121A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">500</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">M3 V</td>
+              </tr><tr>
+                <td class="world-hex">2638</td>
+                <td class="world-name ">Grecorn</td>
+                <td class="world-uwp">B79858C-B</td>
+                <td class="world-remarks">Ag Ni Da</td>
+                <td class="world-ix">{ 2 }</td>
+                <td class="world-ex">(746+5)</td>
+                <td class="world-cx">[878E]</td>
+                <td class="world-nobility">BC</td>
+                <td class="world-base"></td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">700</td>
+                <td class="world-worlds">12</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K3 V</td>
+              </tr><tr>
+                <td class="world-hex">2731</td>
+                <td class="world-name ">Filentred</td>
+                <td class="world-uwp">B548534-8</td>
+                <td class="world-remarks">Ag Ni</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(B44-2)</td>
+                <td class="world-cx">[3536]</td>
+                <td class="world-nobility">BC</td>
+                <td class="world-base">S</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">504</td>
+                <td class="world-worlds">12</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F5 V M7 V</td>
+              </tr><tr>
+                <td class="world-hex">2733</td>
+                <td class="world-name ">G'haenbaz</td>
+                <td class="world-uwp">C557558-A</td>
+                <td class="world-remarks">Ag Ni Tapa6</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(745+1)</td>
+                <td class="world-cx">[565A]</td>
+                <td class="world-nobility">BC</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">100</td>
+                <td class="world-worlds">12</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F4 V</td>
+              </tr><tr>
+                <td class="world-hex">2737</td>
+                <td class="world-name ">Bouvrier</td>
+                <td class="world-uwp">E430668-8</td>
+                <td class="world-remarks">De Na Ni Po O:2738</td>
+                <td class="world-ix">{ -3 }</td>
+                <td class="world-ex">(951-3)</td>
+                <td class="world-cx">[6358]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">210</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K1 V</td>
+              </tr><tr>
+                <td class="world-hex">2738</td>
+                <td class="world-name hipop">Cyril</td>
+                <td class="world-uwp">A7969B9-E</td>
+                <td class="world-remarks">Hi In Cp Pz</td>
+                <td class="world-ix">{ 5 }</td>
+                <td class="world-ex">(F8H+5)</td>
+                <td class="world-cx">[AE6F]</td>
+                <td class="world-nobility">BEF</td>
+                <td class="world-base">NS</td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">522</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G4 V</td>
+              </tr><tr>
+                <td class="world-hex">2739</td>
+                <td class="world-name ">Chateau</td>
+                <td class="world-uwp">E450200-5</td>
+                <td class="world-remarks">De Lo Po</td>
+                <td class="world-ix">{ -3 }</td>
+                <td class="world-ex">(410-5)</td>
+                <td class="world-cx">[1111]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">714</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F6 V K4 V</td>
+              </tr><tr>
+                <td class="world-hex">2740</td>
+                <td class="world-name ">Dead End</td>
+                <td class="world-uwp">C576310-5</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(520-5)</td>
+                <td class="world-cx">[1111]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">902</td>
+                <td class="world-worlds">15</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K4 V</td>
+              </tr><tr>
+                <td class="world-hex">2832</td>
+                <td class="world-name ">Debica</td>
+                <td class="world-uwp">D645688-6</td>
+                <td class="world-remarks">Ag Ni RsA</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(852-2)</td>
+                <td class="world-cx">[6456]</td>
+                <td class="world-nobility">BC</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">600</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K7 V M4 V</td>
+              </tr><tr>
+                <td class="world-hex">2833</td>
+                <td class="world-name ">Gundamoor</td>
+                <td class="world-uwp">B311637-C</td>
+                <td class="world-remarks">Ic Na Ni</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(E55+1)</td>
+                <td class="world-cx">[675C]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">324</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K1 IV M5 V</td>
+              </tr><tr>
+                <td class="world-hex">2834</td>
+                <td class="world-name ">Bokilborn</td>
+                <td class="world-uwp">B573552-C</td>
+                <td class="world-remarks">Ni Tapa8</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(B45-3)</td>
+                <td class="world-cx">[1618]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">804</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F0 V M8 V</td>
+              </tr><tr>
+                <td class="world-hex">2837</td>
+                <td class="world-name ">Angsturm</td>
+                <td class="world-uwp">A545788-B</td>
+                <td class="world-remarks">Ag Pi</td>
+                <td class="world-ix">{ 3 }</td>
+                <td class="world-ex">(E6D+3)</td>
+                <td class="world-cx">[7A5B]</td>
+                <td class="world-nobility">BCD</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">314</td>
+                <td class="world-worlds">15</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K4 V</td>
+              </tr><tr>
+                <td class="world-hex">2838</td>
+                <td class="world-name ">Vlad</td>
+                <td class="world-uwp">A554844-C</td>
+                <td class="world-remarks">Pa Ph</td>
+                <td class="world-ix">{ 2 }</td>
+                <td class="world-ex">(E7C+1)</td>
+                <td class="world-cx">[6A3A]</td>
+                <td class="world-nobility">Bce</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">804</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F1 V</td>
+              </tr><tr>
+                <td class="world-hex">2931</td>
+                <td class="world-name ">Vleeck</td>
+                <td class="world-uwp">C762475-6</td>
+                <td class="world-remarks">Ni</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(631-4)</td>
+                <td class="world-cx">[2234]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">404</td>
+                <td class="world-worlds">7</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G2 V</td>
+              </tr><tr>
+                <td class="world-hex">2932</td>
+                <td class="world-name ">Pamraeltan</td>
+                <td class="world-uwp">A537651-E</td>
+                <td class="world-remarks">Ni Tapa4</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(B55-3)</td>
+                <td class="world-cx">[271A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">703</td>
+                <td class="world-worlds">14</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">A2 V M5 V</td>
+              </tr><tr>
+                <td class="world-hex">2934</td>
+                <td class="world-name ">P'hakar</td>
+                <td class="world-uwp">C420456-B</td>
+                <td class="world-remarks">De He Ni Po Tapa3</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(B33-1)</td>
+                <td class="world-cx">[344A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">S</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">923</td>
+                <td class="world-worlds">14</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">M1 V</td>
+              </tr><tr>
+                <td class="world-hex">2935</td>
+                <td class="world-name ">Harmony</td>
+                <td class="world-uwp">E6538AF-4</td>
+                <td class="world-remarks">Po Ph Pz</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(A74+3)</td>
+                <td class="world-cx">[D6A9]</td>
+                <td class="world-nobility">Be</td>
+                <td class="world-base"></td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">633</td>
+                <td class="world-worlds">12</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F0 V</td>
+              </tr><tr>
+                <td class="world-hex">2939</td>
+                <td class="world-name ">Numeron</td>
+                <td class="world-uwp">B432769-9</td>
+                <td class="world-remarks">Na Po O:2838</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(D6A+2)</td>
+                <td class="world-cx">[886A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">313</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">M3 V</td>
+              </tr><tr>
+                <td class="world-hex">3035</td>
+                <td class="world-name hipop">Mynez</td>
+                <td class="world-uwp">E627989-8</td>
+                <td class="world-remarks">Hi In</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(F89+1)</td>
+                <td class="world-cx">[A969]</td>
+                <td class="world-nobility">BE</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">904</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K1 V</td>
+              </tr><tr>
+                <td class="world-hex">3036</td>
+                <td class="world-name ">Seville</td>
+                <td class="world-uwp">B657445-7</td>
+                <td class="world-remarks">Ni Ga Pa</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(632-3)</td>
+                <td class="world-cx">[2335]</td>
+                <td class="world-nobility">Bc</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">404</td>
+                <td class="world-worlds">12</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F1 V</td>
+              </tr><tr>
+                <td class="world-hex">3037</td>
+                <td class="world-name ">Dagu</td>
+                <td class="world-uwp">B100362-C</td>
+                <td class="world-remarks">Lo Va O:2738</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(921-3)</td>
+                <td class="world-cx">[1418]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">504</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K4 V K8 V</td>
+              </tr><tr>
+                <td class="world-hex">3038</td>
+                <td class="world-name ">Transit</td>
+                <td class="world-uwp">B987230-8</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(610-5)</td>
+                <td class="world-cx">[1113]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">520</td>
+                <td class="world-worlds">11</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G7 V</td>
+              </tr><tr>
+                <td class="world-hex">3040</td>
+                <td class="world-name ">Elphintrax</td>
+                <td class="world-uwp">C574476-7</td>
+                <td class="world-remarks">Ni Pa Da Chir4</td>
+                <td class="world-ix">{ -2 }</td>
+                <td class="world-ex">(631-3)</td>
+                <td class="world-cx">[3246]</td>
+                <td class="world-nobility">Bc</td>
+                <td class="world-base"></td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">413</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F2 V M1 V</td>
+              </tr><tr>
+                <td class="world-hex">3132</td>
+                <td class="world-name ">Alexander</td>
+                <td class="world-uwp">B42369A-B</td>
+                <td class="world-remarks">Na Ni Po</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(C55+3)</td>
+                <td class="world-cx">[877D]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">404</td>
+                <td class="world-worlds">9</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G4 V</td>
+              </tr><tr>
+                <td class="world-hex">3133</td>
+                <td class="world-name ">Breezy</td>
+                <td class="world-uwp">B100544-C</td>
+                <td class="world-remarks">Ni Va</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(B45-1)</td>
+                <td class="world-cx">[363A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">704</td>
+                <td class="world-worlds">16</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">M1 V M7 V</td>
+              </tr><tr>
+                <td class="world-hex">3134</td>
+                <td class="world-name ">Dlaekan</td>
+                <td class="world-uwp">A583657-D</td>
+                <td class="world-remarks">Ni Ri (Tapazmal)</td>
+                <td class="world-ix">{ 2 }</td>
+                <td class="world-ex">(A56+2)</td>
+                <td class="world-cx">[685D]</td>
+                <td class="world-nobility">BC</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">202</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G4 V M6 V</td>
+              </tr><tr>
+                <td class="world-hex">3135</td>
+                <td class="world-name ">Good Home</td>
+                <td class="world-uwp">B745789-9</td>
+                <td class="world-remarks">Ag Pi</td>
+                <td class="world-ix">{ 2 }</td>
+                <td class="world-ex">(C6B+3)</td>
+                <td class="world-cx">[896A]</td>
+                <td class="world-nobility">BCD</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">303</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">F0 V M6 V</td>
+              </tr><tr>
+                <td class="world-hex">3136</td>
+                <td class="world-name ">Alverik</td>
+                <td class="world-uwp">A550698-A</td>
+                <td class="world-remarks">De Ni Po Da</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(855+1)</td>
+                <td class="world-cx">[675A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone">A</td>
+                <td class="world-pbg">800</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">K0 V</td>
+              </tr><tr>
+                <td class="world-hex">3140</td>
+                <td class="world-name ">Unseren</td>
+                <td class="world-uwp">B552549-9</td>
+                <td class="world-remarks">Ni Po</td>
+                <td class="world-ix">{ 0 }</td>
+                <td class="world-ex">(A44+1)</td>
+                <td class="world-cx">[656A]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">S</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">803</td>
+                <td class="world-worlds">10</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G5 V</td>
+              </tr><tr>
+                <td class="world-hex">3231</td>
+                <td class="world-name ">Roger</td>
+                <td class="world-uwp">B424200-B</td>
+                <td class="world-remarks">Lo</td>
+                <td class="world-ix">{ 1 }</td>
+                <td class="world-ex">(411-3)</td>
+                <td class="world-cx">[1316]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base"></td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">300</td>
+                <td class="world-worlds">8</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">M2 V</td>
+              </tr><tr>
+                <td class="world-hex">3237</td>
+                <td class="world-name ">Jeandrent</td>
+                <td class="world-uwp">BA7A666-8</td>
+                <td class="world-remarks">Ni Oc O:2837</td>
+                <td class="world-ix">{ -1 }</td>
+                <td class="world-ex">(C53-2)</td>
+                <td class="world-cx">[5547]</td>
+                <td class="world-nobility">B</td>
+                <td class="world-base">N</td>
+                <td class="world-zone"></td>
+                <td class="world-pbg">613</td>
+                <td class="world-worlds">13</td>
+                <td class="world-alleg">ImDv</td>
+                <td class="world-stellar">G0 V M4 V</td>
+            </tr></tbody></table>
+
+            <p class="blurb">
+            The Moibin subsector contains
+            37 worlds with a
+             population of
+            55.6 billion.
+             
+              The highest population is
+              40 billion,
+              at Argus.
+               
+            The highest tech level is F
+            at Stock Point 3.
+             The subsector capital is at Cyril.
+
+          </p></div>
+        </div>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="page-half ss-page-right">
+        <div class="content">
+          <div style="position: relative; margin: 2px;">
+            <img class="subsector-image" src="./The Reft Sector_files/Reft_Subsector_80.svg" alt="">
+            <div class="subsector-image-border">
+            <div class="neighbor neighbor-c">Limon</div>
+            <div class="neighbor neighbor-t">&nbsp;</div>
+            <div class="neighbor neighbor-r">&nbsp;</div>
+            <div class="neighbor neighbor-s">Arcrant</div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsector P of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+    </div>
+
+    <!-- Legend and Details -->
+    <div id="legend_details" class="page">
+      <!-- Legend -->
+      <div class="page-half details-page">
+        <div class="content">
+          <div class="details_title">Map Symbols</div>
+
+          <table class="legend">
+            <tbody><tr>
+              <td>
+                <h4>Map Legend</h4>
+                <img src="./The Reft Sector_files/Legend_1003_print.svg"><br>
+                <img src="./The Reft Sector_files/Legend_1006_print.svg">
+              </td>
+              <td>
+                <h4>World Characteristics</h4>
+                <ul>
+                    <li><span class="glyph" style="font-size: 14pt;">○</span> No Water Present
+                    </li><li><span class="glyph water" style="font-size: 14pt;">●</span> Water Present
+                    </li><li><span class="glyph" style="font-size: 12pt; font-weight: bold;">:::</span> Asteroid Belt
+                    </li><li><span class="glyph" style="font-size: 12pt;">∗</span> Unexplored
+                </li></ul>
+
+                <h4>Bases</h4>
+
+                <ul>
+                  <li><span class="glyph" style="font-size: 8pt;">★</span> Imperial Naval Base
+                  </li><li><span class="glyph" style="font-size: 10pt;">■</span> Imperial Naval Depot
+                  </li><li><span class="glyph" style="font-size: 10pt;">▲</span> Imperial Scout Base
+                  </li><li><span class="glyph highlight" style="font-size: 10pt;">▲</span> Imperial Scout Way Station
+
+                  </li><li><span class="glyph" style="font-size: 12pt;">♦</span> Zhodani Base
+                  </li><li><span class="glyph highlight" style="font-size: 12pt;">♦</span> Zhodani Relay Station
+
+                  </li><li><span class="glyph highlight" style="font-size: 8pt;">★</span> Other Naval / Tlauku Base
+                  </li><li><span class="glyph highlight" style="font-size: 10pt;">■</span> Other Naval Depot / Outpost
+                  </li><li><span class="glyph" style="font-size: 12pt;">∗∗</span> Corsair / Clan Base / Embassy
+                  </li><li><span class="glyph" style="font-size: 10pt;">✦</span> Military Base
+                  </li><li><span class="glyph low" style="font-size: 12pt;">•</span> Independent Base
+
+                  </li><li><span class="glyph highlight" style="font-size: 10pt;"><b>Γ</b></span> Research Station
+                  </li><li><span class="glyph" style="font-size: 10pt;"><b>R</b></span> Imperial Reserve
+                  </li><li><span class="glyph highlight" style="font-size: 10pt;"><b>P</b></span> Imperial Penal Colony
+                  </li><li><span class="glyph" style="font-size: 10pt;"><b>X</b></span> Imperial Prison, Exile Camp
+                </li></ul>
+
+                <h4>Travel Zones</h4>
+                <ul>
+                  <li><span class="glyph amberzone" style="font-size: 12pt;">▬</span> Amber Zone
+                  </li><li><span class="glyph redzone" style="font-size: 12pt;">▬</span> Red Zone
+                </li></ul>
+
+                <h4>Population</h4>
+                <ul>
+                  <li><span class="popname">Wef</span> under 1 billion
+                  </li><li><span class="popname">YNAM</span> over 1 billion
+                  </li><li><span class="highlight">Highlighted</span> world names<br>are capitals
+                </li></ul>
+
+              </td>
+            </tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <!-- World Details -->
+      <div class="page-half details-page">
+        <div class="content">
+          <div class="details_title right">World Data</div>
+
+          <p>
+            World listings are presented in the format described by the Traveller<sup>5</sup> Second Survey, and include the following fields:
+          </p>
+          <table class="field-definitions">
+            <tbody><tr><td>UWP</td><td>Universal World Profile:
+                Starport, Size, Atm, Hyd, Pop, Gov, Law, Tech</td></tr>
+            <tr><td>Remarks</td><td>Trade codes and notes</td></tr>
+            <tr><td>{Ix}</td><td>Importance Extension - world importance</td></tr>
+            <tr><td>(Ex)</td><td>Economic Extension: Resources, Labor, Infrastructure, Efficiency</td></tr>
+            <tr><td>[Cx]</td><td>Cultural Extension: Heterogeneity, Acceptance, Strangeness, Symbols</td></tr>
+            <tr><td>N</td><td>Nobility (Third Imperium)</td></tr>
+            <tr><td>B</td><td>Bases</td></tr>
+            <tr><td>Z</td><td>Travel Zone Classification</td></tr>
+            <tr><td>PBG</td><td>Population multiplier; Belt count; Gas giant count</td></tr>
+            <tr><td>W</td><td>World count</td></tr>
+            <tr><td>A</td><td>Allegiance</td></tr>
+            <tr><td>Stellar</td><td>System star types</td></tr>
+          </tbody></table>
+
+            <h4>Allegiances</h4>
+            <table class="allegiances">
+              <tbody><tr><td>CsIm</td><td>Client state, Third Imperium</td></tr>
+              <tr><td>ImDd</td><td>Third Imperium, Domain of Deneb</td></tr>
+              <tr><td>ImDv</td><td>Third Imperium, Domain of Vland</td></tr>
+              <tr><td>NaHu</td><td>Non-Aligned, Human-dominated</td></tr>
+              <tr><td>NaXX</td><td>Non-Aligned, unclaimed</td></tr>
+            </tbody></table>
+
+
+        </div>
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">World Details</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+
+    </div>
+
+    <!-- Subsector Listing -->
+    <div id="subsector_listing" class="page">
+      <!-- Subsectors -->
+      <div class="page-half details-page">
+        <div class="content">
+          <div class="details_title">Subsectors</div>
+
+          <h4>&nbsp;</h4>
+          <table class="subsector-grid">
+            <tbody><tr><td>A</td><td>B</td><td>C</td><td>D</td></tr>
+            <tr><td>E</td><td>F</td><td>G</td><td>H</td></tr>
+            <tr><td>I</td><td>J</td><td>K</td><td>L</td></tr>
+            <tr><td>M</td><td>N</td><td>O</td><td>P</td></tr>
+          </tbody></table>
+
+          <table class="subsector-list">
+            <tbody><tr><td>A</td><td>Vestus</td></tr>
+            <tr><td>B</td><td>Macon</td></tr>
+            <tr><td>C</td><td>Two Little</td></tr>
+            <tr><td>D</td><td>Barker</td></tr>
+            <tr><td>E</td><td>Usher</td></tr>
+            <tr><td>F</td><td>Sagittarian</td></tr>
+            <tr><td>G</td><td>Lost Way</td></tr>
+            <tr><td>H</td><td>Gome</td></tr>
+            <tr><td>I</td><td>Void 8</td></tr>
+            <tr><td>J</td><td>New Islands</td></tr>
+            <tr><td>K</td><td>Old Islands</td></tr>
+            <tr><td>L</td><td>Limon</td></tr>
+            <tr><td>M</td><td>Alone</td></tr>
+            <tr><td>N</td><td>Evestin</td></tr>
+            <tr><td>O</td><td>Arcrant</td></tr>
+            <tr><td>P</td><td>Moibin</td></tr>
+          </tbody></table>
+
+        </div>
+
+        <!-- TODO: More useful stuff here -->
+
+      </div>
+
+      <!-- World Details -->
+      <div class="page-half details-page">
+
+        <!-- TODO: More useful stuff here -->
+
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Subsectors of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+
+    </div>
+
+    <!-- Index Page -->
+    <div class="index_page page">
+
+      <!-- Index Entries -->
+      <div class="page-half index-page pp1">
+
+        <div class="content">
+          <div class="index_title">Index</div>
+          <div class="index-column">
+            <div class="index-entry">
+              Acadie, K2225
+            </div>
+            <div class="index-entry">
+              Achille, K2324
+            </div>
+            <div class="index-entry">
+              Aldaya, E0212
+            </div>
+            <div class="index-entry">
+              Alexander, P3132
+            </div>
+            <div class="index-entry">
+              Alverik, P3136
+            </div>
+            <div class="index-entry">
+              Ambossa, A0410
+            </div>
+            <div class="index-entry">
+              Amoirve, A0109
+            </div>
+            <div class="index-entry">
+              Amondiage, K2325
+            </div>
+            <div class="index-entry">
+              Angsturm, P2837
+            </div>
+            <div class="index-entry">
+              Argus, P2536
+            </div>
+            <div class="index-entry">
+              Arnorac, D2509
+            </div>
+            <div class="index-entry">
+              Arraste, O2139
+            </div>
+            <div class="index-entry">
+              Aum-rhar, C1907
+            </div>
+            <div class="index-entry">
+              Banskonno, E0112
+            </div>
+            <div class="index-entry">
+              Bastion, E0118
+            </div>
+            <div class="index-entry">
+              Benidorm, A0402
+            </div>
+            <div class="index-entry">
+              Berlichingen, J1621
+            </div>
+            <div class="index-entry">
+              Besancon, J1526
+            </div>
+            <div class="index-entry">
+              Bokilborn, P2834
+            </div>
+            <div class="index-entry">
+              Boneyard, P2537
+            </div>
+            <div class="index-entry">
+              Bonn, L3230
+            </div>
+            <div class="index-entry">
+              Bouvrier, P2737
+            </div>
+            <div class="index-entry">
+              Breezy, P3133
+            </div>
+            <div class="index-entry">
+              Carian, A0408
+            </div>
+            <div class="index-entry">
+              Cauldron, A0102
+            </div>
+            <div class="index-entry">
+              Cerebin, E0217
+            </div>
+            <div class="index-entry">
+              Chandler Station, E0618
+            </div>
+            <div class="index-entry">
+              Chateau, P2739
+            </div>
+            <div class="index-entry">
+              Checker, A0702
+            </div>
+            <div class="index-entry">
+              Colchis, K2026
+            </div>
+            <div class="index-entry">
+              Colony Five, A0707
+            </div>
+            <div class="index-entry">
+              Corp Town, A0502
+            </div>
+            <div class="index-entry">
+              Cyclone, L2930
+            </div>
+            <div class="index-entry">
+              Cyril, P2738
+            </div>
+            <div class="index-entry">
+              Dagu, P3037
+            </div>
+            <div class="index-entry">
+              Dead End, P2740
+            </div>
+            <div class="index-entry">
+              Debica, P2832
+            </div>
+            <div class="index-entry">
+              Delinski, P2538
+            </div>
+            <div class="index-entry">
+              Dimple, A0305
+            </div>
+            <div class="index-entry">
+              Dlaekan, P3134
+            </div>
+          </div>
+          <div class="index-column">
+            <div class="index-entry">
+              Earl Center, B1102
+            </div>
+            <div class="index-entry">
+              Elixir, A0801
+            </div>
+            <div class="index-entry">
+              Elphintrax, P3040
+            </div>
+            <div class="index-entry">
+              Elysee, J1525
+            </div>
+            <div class="index-entry">
+              Eskandor, L3028
+            </div>
+            <div class="index-entry">
+              Esperanza, J0926
+            </div>
+            <div class="index-entry">
+              Evet's World, B0903
+            </div>
+            <div class="index-entry">
+              Filentred, P2731
+            </div>
+            <div class="index-entry">
+              Fraaga, E0511
+            </div>
+            <div class="index-entry">
+              Fresneise, O2240
+            </div>
+            <div class="index-entry">
+              G'haenbaz, P2733
+            </div>
+            <div class="index-entry">
+              Garden, M0435
+            </div>
+            <div class="index-entry">
+              Gaspar, A0604
+            </div>
+            <div class="index-entry">
+              Gloire, J1123
+            </div>
+            <div class="index-entry">
+              Good Home, P3135
+            </div>
+            <div class="index-entry">
+              Gordon, D2609
+            </div>
+            <div class="index-entry">
+              Gorod, B1302
+            </div>
+            <div class="index-entry">
+              Grecorn, P2638
+            </div>
+            <div class="index-entry">
+              Grudovo, E0111
+            </div>
+            <div class="index-entry">
+              Gundamoor, P2833
+            </div>
+            <div class="index-entry">
+              Haliburn, P2540
+            </div>
+            <div class="index-entry">
+              Harmony, P2935
+            </div>
+            <div class="index-entry">
+              Helifil, E0313
+            </div>
+            <div class="index-entry">
+              Herzenslust, J1426
+            </div>
+            <div class="index-entry">
+              Hoilhapuli, L3229
+            </div>
+            <div class="index-entry">
+              Hope Freeport, M0134
+            </div>
+            <div class="index-entry">
+              Igualada, A0605
+            </div>
+            <div class="index-entry">
+              Iselen, A0105
+            </div>
+            <div class="index-entry">
+              Ishlagu Calibration Point, D3103
+            </div>
+            <div class="index-entry">
+              Jacob, O2239
+            </div>
+            <div class="index-entry">
+              Jeandrent, P3237
+            </div>
+            <div class="index-entry">
+              Jokelyn, L3128
+            </div>
+            <div class="index-entry">
+              Joyeuse, J1628
+            </div>
+            <div class="index-entry">
+              Kukaa, A0108
+            </div>
+            <div class="index-entry">
+              Lintl, A0503
+            </div>
+            <div class="index-entry">
+              Mieniept, O2436
+            </div>
+            <div class="index-entry">
+              Mukiud, A0701
+            </div>
+            <div class="index-entry">
+              Mynez, P3035
+            </div>
+            <div class="index-entry">
+              Nebelwelt, J1030
+            </div>
+            <div class="index-entry">
+              Neon, E0216
+            </div>
+          </div>
+          <div class="index-column">
+            <div class="index-entry">
+              Neubayern, K1822
+            </div>
+            <div class="index-entry">
+              New Colchis, J1327
+            </div>
+            <div class="index-entry">
+              New Home, K1925
+            </div>
+            <div class="index-entry">
+              Numeron, P2939
+            </div>
+            <div class="index-entry">
+              Oleiros, B1204
+            </div>
+            <div class="index-entry">
+              Orphee, J1429
+            </div>
+            <div class="index-entry">
+              P'hakar, P2934
+            </div>
+            <div class="index-entry">
+              Pamraeltan, P2932
+            </div>
+            <div class="index-entry">
+              Peshtorno, A0208
+            </div>
+            <div class="index-entry">
+              Petre, A0210
+            </div>
+            <div class="index-entry">
+              Pit Stop, O2337
+            </div>
+            <div class="index-entry">
+              Quichotte, K1729
+            </div>
+            <div class="index-entry">
+              Quiver, P2534
+            </div>
+            <div class="index-entry">
+              R'Bak, F1314
+            </div>
+            <div class="index-entry">
+              Rampart, L3030
+            </div>
+            <div class="index-entry">
+              Reudden, A0106
+            </div>
+            <div class="index-entry">
+              Riftspan Station, L2528
+            </div>
+            <div class="index-entry">
+              Roger, P3231
+            </div>
+            <div class="index-entry">
+              Rogue Dwarf, M0539
+            </div>
+            <div class="index-entry">
+              Roguestar, H2714
+            </div>
+            <div class="index-entry">
+              Sakaliin, L3029
+            </div>
+            <div class="index-entry">
+              Sansterre, K2322
+            </div>
+            <div class="index-entry">
+              Schlesien Belt, K1923
+            </div>
+            <div class="index-entry">
+              Schuuni, D2904
+            </div>
+            <div class="index-entry">
+              Serendip Belt, J1323
+            </div>
+            <div class="index-entry">
+              Sestao, B1301
+            </div>
+            <div class="index-entry">
+              Seville, P3036
+            </div>
+            <div class="index-entry">
+              Solbatn, A0203
+            </div>
+            <div class="index-entry">
+              St. Denis, K2423
+            </div>
+            <div class="index-entry">
+              St. Genevieve, K2123
+            </div>
+            <div class="index-entry">
+              St. Hilaire, J0930
+            </div>
+            <div class="index-entry">
+              Stock Point 3, P2636
+            </div>
+            <div class="index-entry">
+              Sturgeon's Law, K1724
+            </div>
+            <div class="index-entry">
+              Tonnurad, E0416
+            </div>
+            <div class="index-entry">
+              Topas, J1522
+            </div>
+            <div class="index-entry">
+              Transit, P3038
+            </div>
+            <div class="index-entry">
+              Ulnert, B1002
+            </div>
+            <div class="index-entry">
+              Undrelyn, G1812
+            </div>
+            <div class="index-entry">
+              Unseren, P3140
+            </div>
+            <div class="index-entry">
+              Usher Proto-System, E0613
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="page-half index-page pp2">
+
+        <div class="content">
+          <div class="index_title">Index</div>
+          <div class="index-column">
+            <div class="index-entry">
+              Uxors, O2435
+            </div>
+            <div class="index-entry">
+              Valentorn, P2539
+            </div>
+            <div class="index-entry">
+              Vlad, P2838
+            </div>
+            <div class="index-entry">
+              Vleeck, P2931
+            </div>
+            <div class="index-entry">
+              Wellington, J0925
+            </div>
+            <div class="index-entry">
+              Whisp, A0602
+            </div>
+            <div class="index-entry">
+              Yvette, B1103
+            </div>
+            <div class="index-entry">
+              Zaguki, A0710
+            </div>
+            <div class="index-entry">
+              Zamoran, C2108
+            </div>
+            <div class="index-entry">
+              Zuflucht, J0921
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer/Page Break -->
+      <div class="footer">
+        <div class="footer-left">Index of Reft</div>
+        <div class="footer-right">TravellerMap.com</div>
+      </div>
+
+    </div>
+
+  </body></html>
